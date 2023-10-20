@@ -77,9 +77,11 @@ $kennel1 = new kennel('dog bed', 54.9, "https://picsum.photos/200/300", 'dog', '
 $kennel2 = new kennel('cat house', 54.9, "https://picsum.photos/200/300", 'cat', 'big', 'kennel');
 
 
-$products = [$toy1, $toy2, $food1, $food2, $kennel1, $kennel2];
+$toys = [$toy1, $toy2];
+$food_products = [$food1, $food2];
+$kennels = [$kennel1, $kennel2];
 
-
+var_dump($toy1->image)
 
 ?>
 
@@ -105,20 +107,37 @@ $products = [$toy1, $toy2, $food1, $food2, $kennel1, $kennel2];
 
     <main>
         <div class="container">
-            <div class="row">
-                <?php foreach ($products as $product) : ?>
+            <div class="row row-cols-3">
+                <?php foreach ($toys as $toy) : ?>
                     <div class="col">
                         <div class="card">
-                            <div class="card-img">
-                                <img src=<?php $product->image ?> alt="">
-                            </div>
+
+                            <img src="<?= $toy->image ?>" class="card-img-top">
+
                             <div class="card-body">
-                                <?php echo $product->name ?>
+                                <?php echo "$toy->name $toy->price" ?>
+                                <?php echo $toy->price ?>
                             </div>
 
                         </div>
-                    <?php endforeach ?>
                     </div>
+                <?php endforeach ?>
+
+                <?php foreach ($food_products as $food_product) : ?>
+                    <div class="col">
+                        <div class="card">
+
+                            <img src="<?= $food_product->image ?>" class="card-img-top">
+
+                            <div class="card-body">
+                                <?php echo "$food_product->name $food_product->price" ?>
+                                <?php echo $food_product->price ?>
+                            </div>
+
+                        </div>
+                    </div>
+                <?php endforeach ?>
+
 
             </div>
         </div>
