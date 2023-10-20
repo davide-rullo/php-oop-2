@@ -67,21 +67,20 @@ class kennel extends product
 }
 
 
-$toy1 = new Toy('palla', 4, "https://picsum.photos/200/300", 'dog', 'small', 'toy');
-$toy2 = new Toy('peluche', 8, "https://picsum.photos/200/300", 'dog', 'medium', 'toy');
+$toy1 = new Toy('palla', '4 €', "https://picsum.photos/200/300", 'dog', 'small', 'toy');
+$toy2 = new Toy('peluche', '8 €', "https://picsum.photos/200/300", 'dog', 'medium', 'toy');
 
-$food1 = new Food('meat', 10, "https://picsum.photos/200/300", 'cat', 'wet food', 'food');
-$food2 = new Food('vegetables', 9, "https://picsum.photos/200/300", 'dog', 'wet food', 'food');
+$food1 = new Food('meat', '10 €', "https://picsum.photos/200/300", 'cat', 'wet', 'food');
+$food2 = new Food('vegetables', '9 €', "https://picsum.photos/200/300", 'dog', 'dry', 'food');
 
-$kennel1 = new kennel('dog bed', 54.9, "https://picsum.photos/200/300", 'dog', 'big', 'kennel');
-$kennel2 = new kennel('cat house', 54.9, "https://picsum.photos/200/300", 'cat', 'big', 'kennel');
+$kennel1 = new kennel('dog bed', '54.9 €', "https://picsum.photos/200/300", 'dog', 'big', 'kennel');
+$kennel2 = new kennel('cat house', '45.9 €', "https://picsum.photos/200/300", 'cat', 'big', 'kennel');
 
 
 $toys = [$toy1, $toy2];
 $food_products = [$food1, $food2];
 $kennels = [$kennel1, $kennel2];
 
-var_dump($toy1->image)
 
 ?>
 
@@ -99,44 +98,83 @@ var_dump($toy1->image)
 
     <header>
         <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Animal Store</a>
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand" href="#">
+                    Animal Store
+                </a>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class="container">
-            <div class="row row-cols-3">
+
+        <div class="container mt-4">
+
+
+
+
+
+
+            <div class="row row-cols-3 g-5">
                 <?php foreach ($toys as $toy) : ?>
                     <div class="col">
-                        <div class="card">
+                        <div class="card text-capitalize">
 
                             <img src="<?= $toy->image ?>" class="card-img-top">
 
-                            <div class="card-body">
-                                <?php echo "$toy->name $toy->price" ?>
-                                <?php echo $toy->price ?>
+                            <div class="card-body text-center d-flex flex-column gap-1">
+
+                                <h3><?php echo $toy->name ?></h3>
+                                <h5><?php echo $toy->price ?></h5>
+                                <p>Category: <?php echo "$toy->category, $toy->productType" ?></p>
+                                <p>Size: <?php echo $toy->size ?></p>
                             </div>
 
                         </div>
                     </div>
                 <?php endforeach ?>
 
-                <?php foreach ($food_products as $food_product) : ?>
+
+                <?php foreach ($food_products as $fp) : ?>
                     <div class="col">
-                        <div class="card">
+                        <div class="card text-capitalize">
 
-                            <img src="<?= $food_product->image ?>" class="card-img-top">
+                            <img src="<?= $fp->image ?>" class="card-img-top">
 
-                            <div class="card-body">
-                                <?php echo "$food_product->name $food_product->price" ?>
-                                <?php echo $food_product->price ?>
+                            <div class="card-body text-center d-flex flex-column gap-1">
+
+                                <h3><?php echo $fp->name ?></h3>
+                                <h5><?php echo $fp->price ?></h5>
+                                <p>Category: <?php echo "$fp->category, $fp->productType" ?></p>
+                                <p>Type: <?php echo $fp->type ?></p>
                             </div>
 
                         </div>
                     </div>
                 <?php endforeach ?>
+
+
+
+
+                <?php foreach ($kennels as $kennel) : ?>
+                    <div class="col">
+                        <div class="card text-capitalize">
+
+                            <img src="<?= $kennel->image ?>" class="card-img-top">
+
+                            <div class="card-body text-center d-flex flex-column gap-1">
+
+                                <h3><?php echo $kennel->name ?></h3>
+                                <h5><?php echo $kennel->price ?></h5>
+                                <p>Category: <?php echo "$kennel->category, $kennel->productType" ?></p>
+                                <p>Size: <?php echo $kennel->size ?></p>
+                            </div>
+
+                        </div>
+                    </div>
+                <?php endforeach ?>
+
+
 
 
             </div>
