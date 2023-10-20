@@ -4,35 +4,82 @@ class product
     public $name;
     public $price;
     public $image;
-    public function __construct($name, $price)
+    public $category;
+    public $productType;
+
+
+
+    public function __construct($name, $price, $image, $category, $productType)
     {
         $this->name = $name;
         $this->price = $price;
+        $this->image = $image;
+        $this->category = $category;
+        $this->productType = $productType;
     }
 }
 
-class category
-{
-    public $race;
-}
 
 class food extends product
 {
+    public $category;
     public $type;
+    public function __construct($name, $price, $image, $category, $type, $productType)
+
+    {
+        $this->name = $name;
+        $this->price = $price;
+        $this->image = $image;
+        $this->category = $category;
+        $this->type = $type;
+        $this->productType = $productType;
+    }
 }
 
 class toy extends product
 {
-    public $type;
+    public $size;
+    public function __construct($name, $price, $image, $category, $size, $productType)
+
+    {
+        $this->name = $name;
+        $this->price = $price;
+        $this->image = $image;
+        $this->category = $category;
+        $this->size = $size;
+        $this->productType = $productType;
+    }
 }
 
 class kennel extends product
 {
     public $size;
+    public function __construct($name, $price, $image, $category, $size, $productType)
+
+    {
+        $this->name = $name;
+        $this->price = $price;
+        $this->image = $image;
+        $this->category = $category;
+        $this->size = $size;
+        $this->productType = $productType;
+    }
 }
 
 
-$toy1 = new Toy('palla', 4);
+$toy1 = new Toy('palla', 4, "https://picsum.photos/200/300", 'dog', 'small', 'toy');
+$toy2 = new Toy('peluche', 8, "https://picsum.photos/200/300", 'dog', 'medium', 'toy');
+
+$food1 = new Food('meat', 10, "https://picsum.photos/200/300", 'cat', 'wet food', 'food');
+$food2 = new Food('vegetables', 9, "https://picsum.photos/200/300", 'dog', 'wet food', 'food');
+
+$kennel1 = new kennel('dog bed', 54.9, "https://picsum.photos/200/300", 'dog', 'big', 'kennel');
+$kennel2 = new kennel('cat house', 54.9, "https://picsum.photos/200/300", 'cat', 'big', 'kennel');
+
+
+$products = [$toy1, $toy2, $food1, $food2, $kennel1, $kennel2];
+
+
 
 ?>
 
@@ -59,13 +106,20 @@ $toy1 = new Toy('palla', 4);
     <main>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-img">
-                            <div class="card-body">Prova</div>
+                <?php foreach ($products as $product) : ?>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src=<?php $product->image ?> alt="">
+                            </div>
+                            <div class="card-body">
+                                <?php echo $product->name ?>
+                            </div>
+
                         </div>
+                    <?php endforeach ?>
                     </div>
-                </div>
+
             </div>
         </div>
     </main>
