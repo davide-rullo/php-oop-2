@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../Traits/Namable.php';
-class product
+class Product
 {
     use Namable;
 

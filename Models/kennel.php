@@ -1,5 +1,5 @@
 <?php
-class kennel extends product
+class Kennel extends product
 {
     public $size;
     public function __construct($name, $price, $image, $category, $size, $productType)
