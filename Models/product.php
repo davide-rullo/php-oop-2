@@ -1,6 +1,9 @@
 <?php
+require_once __DIR__ . '/../Traits/Namable.php';
 class product
 {
+    use Namable;
+
     public $name;
     public $price;
     public $image;

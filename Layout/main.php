@@ -2,11 +2,6 @@
 
     <div class="container mt-4">
 
-
-
-
-
-
         <div class="row row-cols-3 g-5">
             <?php foreach ($toys as $toy) : ?>
                 <div class="col">
@@ -16,7 +11,7 @@
 
                         <div class="card-body text-center d-flex flex-column gap-1">
 
-                            <h3><?php echo $toy->name ?></h3>
+                            <h3><?php echo $toy->getName(); ?></h3>
                             <h5><?php echo $toy->price ?></h5>
                             <p>Category: <?php echo "$toy->category, $toy->productType" ?></p>
                             <p>Size: <?php echo $toy->size ?></p>
@@ -35,7 +30,7 @@
 
                         <div class="card-body text-center d-flex flex-column gap-1">
 
-                            <h3><?php echo $fp->name ?></h3>
+                            <h3><?php echo $fp->getName() ?></h3>
                             <h5><?php echo $fp->price ?></h5>
                             <p>Category: <?php echo "$fp->category, $fp->productType" ?></p>
                             <p>Type: <?php echo $fp->type ?></p>
@@ -56,7 +51,7 @@
 
                         <div class="card-body text-center d-flex flex-column gap-1">
 
-                            <h3><?php echo $kennel->name ?></h3>
+                            <h3><?php echo $kennel->getName() ?></h3>
                             <h5><?php echo $kennel->price ?></h5>
                             <p>Category: <?php echo "$kennel->category, $kennel->productType" ?></p>
                             <p>Size: <?php echo $kennel->size ?></p>

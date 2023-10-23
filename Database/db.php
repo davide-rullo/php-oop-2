@@ -7,7 +7,7 @@ require __DIR__ . '/../Models/kennel.php';
 
 
 
-$toy1 = new Toy('palla', '4 €', "https://picsum.photos/200/300", 'dog', 'small', 'toy');
+$toy1 = new Toy('ball', '4 €', "https://picsum.photos/200/300", 'dog', 'small', 'toy');
 $toy2 = new Toy('peluche', '8 €', "https://picsum.photos/200/300", 'dog', 'medium', 'toy');
 
 $food1 = new Food('meat', '10 €', "https://picsum.photos/200/300", 'cat', 'wet', 'food');

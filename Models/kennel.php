@@ -5,11 +5,8 @@ class kennel extends product
     public function __construct($name, $price, $image, $category, $size, $productType)
 
     {
-        $this->name = $name;
-        $this->price = $price;
-        $this->image = $image;
-        $this->category = $category;
+        parent::__construct($name, $price, $image, $category, $productType);
+
         $this->size = $size;
-        $this->productType = $productType;
     }
 }
